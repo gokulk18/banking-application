@@ -12,3 +12,5 @@ alembic>=1.11.0
 bcrypt==4.0.1
 python-dateutil>=2.8.2
 jinja2>=3.0.0
+email-validator
+pydantic[email]
