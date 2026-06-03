@@ -17,15 +17,15 @@ if db_url.startswith("postgresql"):
         temp_engine = create_engine(db_url, connect_args={"connect_timeout": 1})
         with temp_engine.connect() as conn:
             pass
-        engine = create_engine(db_url, pool_pre_ping=True)
+        engine = create_engine(db_url, pool_pre_ping=True, connect_args={"connect_timeout": 5})
         print("[DATABASE] Connected to PostgreSQL successfully.")
     except (OperationalError, Exception) as e:
         if "localhost" in db_url or "127.0.0.1" in db_url:
             fallback_to_sqlite = True
             print(f"[DATABASE WARNING] PostgreSQL connection failed. Falling back to local SQLite.")
         else:
-            # In production, try to use PostgreSQL anyway
-            engine = create_engine(db_url, pool_pre_ping=True)
+            # In production, try to use PostgreSQL anyway with a short timeout
+            engine = create_engine(db_url, pool_pre_ping=True, connect_args={"connect_timeout": 5})
             print("[DATABASE WARNING] Production PostgreSQL connection failed, but proceeding.")
 
 if not db_url or db_url.startswith("sqlite") or fallback_to_sqlite:
