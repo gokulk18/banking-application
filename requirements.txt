@@ -14,3 +14,6 @@ python-dateutil>=2.8.2
 jinja2>=3.0.0
 email-validator
 pydantic[email]
+uvicorn
+gunicorn
+fastapi
