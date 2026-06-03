@@ -1,0 +1,17 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "python",
+    "AZURE_STORAGE_CONNECTION_STRING": "",
+    "AZURE_CONTAINER_NAME": "banking-documents",
+    "AZURE_VALIDATED_CONTAINER_NAME": "process-and-validated",
+    "AZURE_SERVICEBUS_CONNECTION_STRING": "",
+    "DATABASE_URL": "postgresql://postgres:postgres@localhost:5432/banking_db",
+    "SMTP_SERVER": "localhost",
+    "SMTP_PORT": "1025",
+    "SMTP_USERNAME": "",
+    "SMTP_PASSWORD": "",
+    "SMTP_SENDER": "no-reply@gokulbank.com"
+  }
+}

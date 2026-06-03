@@ -24,7 +24,7 @@ class StorageService:
             except Exception as e:
                 logger.error(f"Failed to initialize Azure Blob Storage: {e}")
 
-    def upload_file(self, file_content: bytes, filename: str, content_type: str) -> dict:
+    def upload_file(self, file_content: bytes, filename: str, content_type: str, metadata: dict = None) -> dict:
         ext = os.path.splitext(filename)[1].lower()
         unique_filename = f"{uuid.uuid4()}{ext}"
         
@@ -32,7 +32,7 @@ class StorageService:
             try:
                 blob_client = self.client.get_blob_client(container=self.container_name, blob=unique_filename)
                 content_settings = ContentSettings(content_type=content_type)
-                blob_client.upload_blob(file_content, overwrite=True, content_settings=content_settings)
+                blob_client.upload_blob(file_content, overwrite=True, content_settings=content_settings, metadata=metadata)
                 return {"url": blob_client.url, "blob_name": unique_filename}
             except Exception as e:
                 logger.error(f"Azure upload failed, falling back to local storage: {e}")

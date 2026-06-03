@@ -1,0 +1,15 @@
+==================================================
+              ANTIGRAVITY BANK STATEMENT
+==================================================
+Account Number: 2005771824
+Account Type  : AccountType.SAVINGS
+Customer Name : Alice Smith
+Current Balance: $500.00
+Generated At  : 2026-06-03 12:18:33
+--------------------------------------------------
+Date                 | Type       | Amount     | Description
+--------------------------------------------------
+2026-06-03 06:48:33  | TransactionType.TRANSFER | -$300.00   | Payment for dinner
+2026-06-03 06:48:32  | TransactionType.DEPOSIT | +$1,000.00 | Birthday gift
+2026-06-03 06:48:32  | TransactionType.WITHDRAW | -$200.00   | Cash withdrawal
+==================================================
