@@ -28,9 +28,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: python-app
-          path: |
-            .
-            !antenv/
+          path: .
 
   deploy-web:
     runs-on: ubuntu-latest
